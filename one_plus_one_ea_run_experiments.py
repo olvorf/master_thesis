@@ -14,27 +14,6 @@ from collections import defaultdict
 import timeit
 matplotlib.use("TkAgg")
 
-def special_graph(h, l):
-    G = nx.Graph()
-
-    # Create nodes
-    for i in range(1, h+1):
-        for j in range(l+1):
-            G.add_node((i, j))
-
-    # Add horizontal edges
-    for i in range(1, h+1):
-        for j in range(0, l, 2):
-            G.add_edge((i, j), (i, j+1))
-
-    # Add complete bipartite graphs
-    for j in range(1, l, 2):
-        for i in range(1, h+1):
-            for k in range(1, h+1):
-                G.add_edge((i, j), (k, j+1))
-
-    return G 
-
 
 def special_graph(h, l):
     G = nx.Graph()
